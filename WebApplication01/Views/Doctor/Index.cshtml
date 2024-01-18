@@ -1,0 +1,40 @@
+﻿@model DoctorIndex
+
+
+
+<form class="form-inline" style="width:250px;">
+    <div class="form-group mb-2">
+        <input type="text" class="form-control" asp-for="SearchKey" placeholder="Search doctor by specialty">
+    </div>
+    <button type="submit" class="btn btn-warning mb-2" style="margin:auto">Search</button>
+    <br />
+    <br />
+    <br />
+    <br />
+</form>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.DoctorList != null)
+        {
+            @foreach (var item in Model.DoctorList)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="2">No Data Found.</td></tr>
+        }
+
+    </tbody>
+</table>
